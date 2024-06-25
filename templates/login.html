@@ -6,7 +6,8 @@
     <title>Mostrar Datos de MySQL</title>
 </head>
 <body>
-    <h1>Datos de los INSCRIPTOS</h1>
+    <div style="max-width: 300px; margin: 50px auto; padding: 20px; background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 5px;">
+    <h1>Listado de Inscriptos</h1>
     <table border="1">
         <thead>
             <tr>
@@ -27,7 +28,12 @@
     </table>
     <br> <br>
     <p>
-        <button type="submit" name="action" value="insert">Eliminar o Agregar inscriptos</button>
+        <center>
+        <form action="/insert" method="get"> <button type="submit">Insertar Inscripto</button> </form> 
+        <br>
+        <form action="/delete" method="get"> <button type="submit">Eliminar Inscripto</button> </form>
+        </center>
     </p>
+</div>
 </body>
 </html>
