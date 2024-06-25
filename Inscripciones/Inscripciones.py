@@ -49,4 +49,20 @@ def delete():
     
     return render_template('baja.html')
 
+@app.route('/modificar', methods=['GET', 'POST'])
+def modificar():
+    if request.method == 'POST':
+        inscripto_id = request.form.get('inscripto_id')
+        name = request.form.get('name')
+        mail = request.form.get('mail')
+        
+        if inscripto_id and name and mail:
+            cursor = mysql.connection.cursor()
+            cursor.execute('''UPDATE inscriptos SET name = %s, mail = %s WHERE inscripto_id = %s''', (name, mail, inscripto_id))
+            mysql.connection.commit()
+            cursor.close()
+            return redirect('/login')
+    
+    return render_template('modificar.html')
+
 app.run(host='localhost', port=5000)
