@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request
+from flask import Flask,render_template, request, redirect
 from flask_mysqldb import MySQL
  
 app = Flask(__name__)
@@ -10,6 +10,10 @@ app.config['MYSQL_DB'] = 'flask'
  
 mysql = MySQL(app)
  
+@app.route('/')
+def ini():
+  return redirect('/login')
+
 @app.route('/form')
 def form():
     return render_template('form.html')
@@ -36,7 +40,8 @@ def login():
         cursor.execute(''' INSERT INTO inscriptos VALUES(%s,%s,%s)''',(None,name,mail))
         mysql.connection.commit()
         cursor.close()
-        return f"Inscripto '{name}' insertado correctamente"
+        #return f"Inscripto '{name}' insertado correctamente"
+        return redirect('/login')
     
       elif action == 'delete':
         inscripto_id = request.form.get('inscripto_id')
@@ -45,6 +50,7 @@ def login():
             cursor.execute('''DELETE FROM inscriptos WHERE inscripto_id = %s''', (inscripto_id,))
             mysql.connection.commit()
             cursor.close()
-            return f"Inscripto con ID {inscripto_id} eliminado correctamente"
- 
+            #return f"Inscripto con ID {inscripto_id} eliminado correctamente"
+            return redirect('/login')
+          
 app.run(host='localhost', port=5000)
