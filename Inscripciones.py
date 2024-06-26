@@ -21,7 +21,7 @@ def login():
         cursor.execute('''SELECT * FROM inscriptos''')
         results = cursor.fetchall()
         cursor.close()
-        return render_template('login.html', results=results)
+        return render_template('index.html', results=results)
       
 @app.route('/insert', methods=['GET', 'POST'])
 def insert():
