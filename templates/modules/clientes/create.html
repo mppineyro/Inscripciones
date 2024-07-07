@@ -1,0 +1,39 @@
+<!--VISTA-->
+<!--Creación de la vista donde se agregarán los nuevos clientes-->
+{% include 'header.html' %}
+
+<div class="row">
+    <div class="col-4"*>
+    </div>
+    <div class="col-4"*>
+        <div class="card">
+            <div class="card-header">AGREGAR CLIENTE</div>
+            <div class="card-body">
+                <form action="/clientes/create/guardar" method="post">
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="" aria-describedby="helpId" placeholder="Nombre"/>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" name="apellido" id="" aria-describedby="helpId" placeholder="Apellido"/>
+                    </div>
+                
+            
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="text" class="form-control" name="email" id="" aria-describedby="helpId" placeholder="Email"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-4"*>
+    </div>
+</div>

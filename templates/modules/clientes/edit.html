@@ -1,0 +1,42 @@
+<!--VISTA-->
+<!--Creación de la vista donde se editarán los clientes que se presentan en la base de datos-->
+
+{% include 'header.html' %}
+
+<div class="row">
+    <div class="col-4"*>
+    </div>
+    <div class="col-4"*>
+        <div class="card">
+            <div class="card-header">EDITAR CLIENTE</div>
+            <div class="card-body">
+                <form action="/clientes/editar/actualizar" method="post">
+                    <input type="hidden" name="id" value="{{clientes['ID']}}">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" value="{{clientes['NOMBRE']}}" name="nombre" id="" aria-describedby="helpId" placeholder="Nombre"/>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" value="{{clientes['APELLIDO']}}" name="apellido" id="" aria-describedby="helpId" placeholder="Apellido"/>
+                    </div>
+                
+            
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="text" class="form-control" value="{{clientes['EMAIL']}}" name="email" id="" aria-describedby="helpId" placeholder="Email"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-4"*>
+    </div>
+</div>
+
+{% include 'footer.html' %}

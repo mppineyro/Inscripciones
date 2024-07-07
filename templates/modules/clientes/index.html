@@ -1,0 +1,38 @@
+<!--VISTA-->
+
+<!--Creación de la vista donde se muestran todos los clientes que se presentan en la base de datos-->
+
+{% include 'header.html' %}
+<h3>LISTA DE CLIENTES</h3>
+<div class="text-center m-3">
+    <a href="/clientes/create" class="btn btn-primary">Nuevo</a>
+</div>
+<div class="table-responsive">
+    <table class="table">
+        <thead class="table table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for cliente in clientes%}
+            <tr class="">
+                <td scope="row">{{cliente['ID']}}</td>
+                <td>{{cliente['NOMBRE']}}</td>
+                <td>{{cliente['APELLIDO']}}</td>
+                <td>{{cliente['EMAIL']}}</td>
+                <td>
+                    <a href="/clientes/editar/{{cliente['ID']}}" class="btn btn-success">Editar</a>
+                    <a href="/clientes/borrar/{{cliente['ID']}}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'footer.html' %}
